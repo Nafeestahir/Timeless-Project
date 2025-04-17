@@ -1,5 +1,5 @@
-const searchToggle = document.getElementById("searchToggle");
-const searchOverlay = document.getElementById("searchOverlay");
+const searchToggle = document.getElementById("tl-searchToggle");
+const searchOverlay = document.getElementById("tl-searchOverlay");
 
 searchToggle.addEventListener("click", () => {
     searchOverlay.classList.toggle("active");
