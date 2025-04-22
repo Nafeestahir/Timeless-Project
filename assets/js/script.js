@@ -17,3 +17,11 @@ document.addEventListener("keydown", (e) => {
         searchOverlay.classList.remove("active");
     }
 });
+// hamburger
+var tlBurgerMenu = document.getElementById('tl-burger-menu');
+var tlOverlay = document.getElementById('tl-menu');
+
+tlBurgerMenu.addEventListener('click', function () {
+    this.classList.toggle('tl-close');
+    tlOverlay.classList.toggle('tl-overlay');
+});
