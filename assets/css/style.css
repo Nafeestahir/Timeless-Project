@@ -328,7 +328,9 @@ header #tl-burger-menu.tl-close span::after {
 .tl-hero {
     background-color: rgb(197, 179, 164);
     padding: 160px 64px;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: -1;
 }
 
 .tl-hero .tl-hero-wrapper .tl-content-block {
@@ -385,21 +387,26 @@ header #tl-burger-menu.tl-close span::after {
     padding-bottom: 24px;
 }
 
-.tl-testimonial .tl-testimonial-block p {
+/* some-slider-block-style */
+.tl-testimonial .tl-testimonial-block p,
+.tl-slider-block .tl-brands p {
     padding-bottom: 32px;
 }
 
-.tl-testimonial .tl-testimonial-block marquee {
+.tl-testimonial .tl-testimonial-block marquee,
+.tl-slider-block .tl-brands marquee {
     width: 100%;
     max-width: 600px;
 }
 
-.tl-testimonial .tl-testimonial-block marquee ul {
+.tl-testimonial .tl-testimonial-block marquee ul,
+.tl-slider-block .tl-brands marquee ul {
     display: flex;
     justify-content: space-between;
 }
 
-.tl-testimonial .tl-testimonial-block marquee ul li img {
+.tl-testimonial .tl-testimonial-block marquee ul li img,
+.tl-slider-block .tl-brands marquee ul li img {
     width: 87px;
     height: 22px;
 }
@@ -408,6 +415,7 @@ header #tl-burger-menu.tl-close span::after {
 .tl-services,
 .tl-features {
     padding: 80px 0;
+    background-color: white;
 }
 
 .tl-services .tl-content-block,
@@ -482,6 +490,7 @@ header #tl-burger-menu.tl-close span::after {
 /* our-work */
 .tl-our-work {
     padding: 80px 0;
+    background-color: white;
 }
 
 .tl-our-work .tl-title-top {
@@ -539,7 +548,7 @@ header #tl-burger-menu.tl-close span::after {
     height: 24px;
     position: absolute;
     right: 21px;
-    transform:translateY(-19px)
+    transform: translateY(-19px);
 }
 
 .tl-our-work .tl-image-block .tl-image:hover .tl-hover-arrow {
@@ -556,6 +565,199 @@ header #tl-burger-menu.tl-close span::after {
     padding: 4px 12px;
     background-color: #A1806E;
     border-radius: 20px;
+}
+
+/* slider-block */
+.tl-slider-block {
+    padding: 80px 0;
+    background-color: rgb(239, 234, 229);
+}
+
+.tl-slider-block .tl-slides-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-slides {
+    width: 100%;
+    display: none;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-slides.tl-active {
+    display: block;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-slide-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-content-block,
+.tl-slider-block .tl-slide-wrapper .tl-image-block {
+    width: 100%;
+    max-width: 48%;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-image-block {
+    border-radius: 17px;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-content-block h3 {
+    padding-bottom: 48px;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-content-block .tl-information .tl-image {
+    padding-bottom: 12px;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-content-block .tl-information img {
+    width: 18px;
+    height: 18px;
+}
+
+.tl-slider-block .tl-slide-wrapper .tl-content-block .tl-information p {
+    font-weight: 500;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-image-block img {
+    width: 100%;
+    border-radius: 17px;
+    object-fit: cover;
+    /* height: 100%;
+    max-height: 750px; */
+    object-position: 50% 50%;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-btn {
+    position: absolute;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    border-radius: 80px;
+    border: none;
+    background-color: #fff;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-btn:hover {
+    background-color: rgb(222, 212, 202);
+    transition: 0.8s ease-in-out;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-next-btn img,
+.tl-slider-block .tl-slides-wrapper .tl-prev-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-prev-btn img {
+    transform: rotate(182deg);
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-prev-btn {
+    left: 38%;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-next-btn {
+    right: 53%;
+}
+
+.tl-slider-block .tl-slides-wrapper .tl-btn:disabled {
+    opacity: 0.5;
+}
+
+.tl-slider-block .tl-brands {
+    text-align: center;
+}
+
+.tl-slider-block .tl-brands p {
+    padding-bottom: 32px;
+}
+
+
+/* .tl-slider-block .tl-slides-wrapper {
+    position: relative;
+    overflow: hidden; */
+/* Prevent slides from overflowing */
+/* }  */
+
+/* .tl-slider-block .tl-slides-inner {
+    display: flex;
+    transition: transform 0.6s ease;
+    width: 100%;
+}
+
+.tl-slider-block .tl-slides {
+    flex: 0 0 100%; */
+/* display: block; */
+/* always show slides inside the flex container */
+/* } */
+
+/* Faq-block */
+.tl-faq-block {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.tl-faq-block .tl-faq {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tl-faq-block .tl-title-top {
+    text-align: center;
+    padding-bottom: 64px;
+}
+
+.tl-faq-block .tl-title-top h4 {
+    padding-bottom: 16px;
+}
+
+.tl-faq-block .tl-faq .tl-faq-item {
+    padding: 24px;
+}
+
+.tl-faq-block .tl-faq .tl-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tl-faq-block .tl-faq .tl-faq-question h6 {
+    color: black;
+}
+
+.tl-faq-block .tl-faq .tl-faq-question .tl-arrow {
+    width: 46px;
+    height: 46px;
+    background-color: rgb(248, 246, 244);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tl-faq-block .tl-faq .tl-faq-question .tl-arrow img {
+    width: 24px;
+    height: 25px;
+}
+
+.tl-faq-block .tl-faq .tl-faq-question.tl-active img {
+    transform: rotate(180deg);
+}
+
+.tl-faq-block .tl-faq .tl-faq-question.tl-active .tl-faq-answer {
+    padding-top: 10px;
+    max-height: 500px;
+}
+
+.tl-faq-block .tl-faq .tl-faq-item .tl-faq-answer {
+    padding-top: 16px;
 }
 
 /* Footer */
@@ -594,7 +796,6 @@ footer .tl-content-block video {
     position: absolute;
     top: 140px;
 }
-
 
 footer .tl-footer-wrapper {
     display: flex;
