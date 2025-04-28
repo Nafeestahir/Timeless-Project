@@ -7,10 +7,12 @@
     <title>Timeless - Luxury Branding Agency</title>
     <link rel="shortcut icon" href="assets/images/rel-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-    <header>
+    <header id="tl-header">
         <div class="container">
             <nav class="tl-navbar">
                 <a href="#" class="tl-site-logo"><img src="assets/images/timeless-logo.png" alt="logo"></a>
@@ -58,26 +60,25 @@
         </div>
 
     </header>
-
-    <main>
-        <!-- hero-section -->
-        <section class="tl-hero">
-            <div class="container">
-                <div class="tl-hero-wrapper">
-                    <div class="tl-content-block">
-                        <div class="tl-new-project">
-                            <p class="copy-md">Accepting new projects</p>
-                        </div>
-                        <h2>Creating timeless brands that inspire.</h2>
-                        <h6 class="h6">Expertly crafted brand experiences that captivate, connect with discerning
-                            audiences, and leave a lasting impression.</h6>
-                        <div class="tl-btn-block">
-                            <a href="#">Get in touch</a>
-                            <span class="tl-arrow-block">
-                                <img src="assets/images/arrow.svg" alt="right-arrow">
-                            </span>
-                        </div>
+    <!-- hero-section -->
+    <section class="tl-hero">
+        <div class="container">
+            <div class="tl-hero-wrapper">
+                <div class="tl-content-block">
+                    <div class="tl-new-project">
+                        <p class="copy-md">Accepting new projects</p>
                     </div>
+                    <h2>Creating timeless brands that inspire.</h2>
+                    <h6 class="h6">Expertly crafted brand experiences that captivate, connect with discerning
+                        audiences, and leave a lasting impression.</h6>
+                    <div class="tl-btn-block">
+                        <a href="#">Get in touch</a>
+                        <span class="tl-arrow-block">
+                            <img src="assets/images/arrow.svg" alt="right-arrow">
+                        </span>
+                    </div>
+                </div>
+                <div class="tl-video">
                     <div class=" tl-video-block">
                         <video autoplay loop="">
                             <source src="assets/video/hero-video.mp4" type="video/mp4">
@@ -85,8 +86,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <main>
         <!-- testimonial -->
         <section class="tl-testimonial">
             <div class="container">
@@ -103,7 +106,7 @@
                 </div>
                 <div class="tl-testimonial-block">
                     <p>Elevating brands that define luxury and excellence:</p>
-                    <marquee direction="left" scrollamount=4>
+                    <marquee direction="left" scrollamount="2">
                         <ul>
                             <li><img src="assets/images/amsterdam.svg" alt="img"></li>
                             <li><img src="assets/images/milano.svg" alt="img"></li>
@@ -115,7 +118,6 @@
                 </div>
             </div>
         </section>
-
         <!-- services -->
         <section class="tl-services">
             <div class="container">
@@ -158,7 +160,92 @@
                 </div>
             </div>
         </section>
-
+        <!-- brand-block -->
+        <section class="tl-brands-block">
+            <div class="container">
+                <div class="tl-title">
+                    <h4>Why Timeless?</h4>
+                    <p>Discover what sets us apart in the art of luxury branding.</p>
+                </div>
+                <div class="tl-brands-wrapper">
+                    <div class="tl-brands">
+                        <div class="tl-hands">
+                            <h3>Seamless collaboration</h3>
+                            <div class="tl-hands-images">
+                                <img src="assets/images/left-hand.png" alt="Left Hand" class="tl-hand-left">
+                                <img src="assets/images/right-hand.avif" alt="Right Hand" class="tl-hand-right">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tl-brands">
+                        <div class="tl-rotating-circle">
+                            <div class="tl-circle">
+                                <img src="assets/images/brand1.avif" class="tl-circle-img" alt="Brand 1">
+                                <img src="assets/images/brand2.avif" class="tl-circle-img" alt="Brand 2">
+                                <img src="assets/images/brand3.avif" class="tl-circle-img" alt="Brand 3">
+                                <img src="assets/images/brand4.png" class="tl-circle-img" alt="Brand 4">
+                                <img src="assets/images/brand5.avif" class="tl-circle-img" alt="Brand 5">
+                                <img src="assets/images/brand6.png" class="tl-circle-img" alt="Brand 6">
+                                <img src="assets/images/brand7.png" class="tl-circle-img" alt="Brand 7">
+                                <img src="assets/images/brand8.png" class="tl-circle-img" alt="Brand 8">
+                            </div>
+                            <h5>Over 100+ brands transformed</h5>
+                        </div>
+                    </div>
+                    <div class="tl-brands">
+                        <div class="tl-identity">
+                            <h5>Elevated brand identity</h5>
+                            <p>time</p>
+                        </div>
+                    </div>
+                    <div class="tl-brands">
+                        <div class="tl-swift-turnaround">
+                            <img src="assets/images/swift.avif" alt="Swift Turnaround" class="tl-swift-img">
+                            <div class="tl-watch">
+                                <img src="assets/images/watch.svg" alt="watch">
+                                <h6>Swift turnaround</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tl-brands">
+                        <div class="tl-storytelling">
+                            <div class="tl-content">
+                                <h5>Strategic storytelling</h5>
+                            </div>
+                            <p class="copy-lg"> <span>E</span>very great brand begins with a story, but not all stories
+                                are created
+                                equal. At Timeless, we believe storytelling is the bridge between your brand and your
+                                audience, a way to resonate deeply and leave a lasting impression. We dive into the
+                                heart of your brand, uncovering the unique elements that set you apart, and craft
+                                narratives that weave emotion with strategy. From the language in your messaging to the
+                                visuals that complement it, every detail is meticulously designed to reflect your
+                                brand’s essence. Our stories don’t just captivate—they inspire trust, loyalty, and
+                                admiration among discerning clients who value authenticity and sophistication. With
+                                Timeless, your brand’s story will not only be told but remembered.</p>
+                        </div>
+                        <div class="tl-retention-block">
+                            <div class="tl-client-retention">
+                                <h2 class="tl-retention-number">94%</h2>
+                                <h6>client retention rate</h6>
+                            </div>
+                            <div class="tl-detail">
+                                <img src="assets/images/eye.avif" alt="Attention" class="tl-attention-detail">
+                                <img src="assets/images/mouse-arrow.png" alt="mouse-arrow" class="tl-mouse-arrow">
+                                <div class="tl-border-block">
+                                    <div class="tl-border-dot">
+                                        <div class="tl-dot-top-left"></div>
+                                        <div class="tl-dot-top-right"></div>
+                                        <div class="tl-dot-bottom-left"></div>
+                                        <div class="tl-dot-bottom-right"></div>
+                                        <h6>Attention to detail</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- features -->
         <section class="tl-features">
             <div class="container">
@@ -199,7 +286,6 @@
                 </div>
             </div>
         </section>
-
         <!-- our-Work -->
         <section class="tl-our-work">
             <div class="container">
@@ -287,82 +373,79 @@
                 </div>
             </div>
         </section>
-
         <!-- slider-block -->
         <section class="tl-slider-block">
             <div class="container">
                 <div class="tl-slides-wrapper">
-                    <div class="tl-slides tl-active">
-                        <div class="tl-slide-wrapper">
-                            <div class="tl-content-block">
-                                <h3>Timeless completely reimagined our brand, creating a visual identity with Sola’s
-                                    essence.</h3>
-                                <div class="tl-information">
-                                    <div class="tl-image">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                    </div>
-                                    <p class="copy-lg">Olivia Hart from Sola</p>
+                    <!-- Static Text Container -->
+                    <div class="tl-content-block">
+                        <div class="tl-slide-content tl-active">
+                            <h3>Timeless completely reimagined our brand, creating a visual identity with Sola’s
+                                essence.</h3>
+                            <div class="tl-information">
+                                <div class="tl-image">
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
                                 </div>
+                                <p class="copy-lg">Olivia Hart from Sola</p>
                             </div>
-                            <div class="tl-image-block">
-                                <img src="assets/images/olivia.avif" alt="img">
+                        </div>
+                        <div class="tl-slide-content">
+                            <h3>Working with Timeless was a game-changer. They crafted a brand identity that exudes
+                                sophistication.</h3>
+                            <div class="tl-information">
+                                <div class="tl-image">
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                </div>
+                                <p class="copy-lg">James Wright from Artisan Luxe</p>
+                            </div>
+                        </div>
+                        <div class="tl-slide-content">
+                            <h3>Timeless brought our vision to life with a brand identity that feels elegant, powerful,
+                                and sophisticated.</h3>
+                            <div class="tl-information">
+                                <div class="tl-image">
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                    <img src="assets/images/star.svg" alt="rating-img" />
+                                </div>
+                                <p class="copy-lg">Sophia Lane from Élan Studio</p>
                             </div>
                         </div>
                     </div>
-                    <div class="tl-slides">
-                        <div class="tl-slide-wrapper">
-                            <div class="tl-content-block">
-                                <h3>Working with Timeless was a game-changer. They crafted a brand identity that exudes
-                                    sophistication.</h3>
-                                <div class="tl-information">
-                                    <div class="tl-image">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                    </div>
-                                    <p class="copy-lg">James Wright from Artisan Luxe</p>
-                                </div>
-                            </div>
-                            <div class="tl-image-block">
-                                <img src="assets/images/james.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tl-slides">
-                        <div class="tl-slide-wrapper">
-                            <div class="tl-content-block">
-                                <h3>Timeless brought our vision to life with a brand identity that feels elegant,
-                                    powerful, and sophisticated.</h3>
-                                <div class="tl-information">
-                                    <div class="tl-image">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                        <img src="assets/images/star.svg" alt="rating-img">
-                                    </div>
-                                    <p class="copy-lg">Sophia Lane from Élan Studio</p>
-                                </div>
-                            </div>
-                            <div class="tl-image-block">
-                                <img src="assets/images/sophia.jpg" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="tl-btn tl-prev-btn">
-                        <img src="assets/images/slider-left-arrow.svg" alt="Previous" />
-                    </button>
-                    <button class="tl-btn tl-next-btn">
-                        <img src="assets/images/slider-left-arrow.svg" alt="Next" />
-                    </button>
 
+                    <!-- Image Container -->
+                    <div class="tl-image-block">
+                        <div class="tl-image-slider">
+                            <div class="tl-image tl-active">
+                                <img src="assets/images/olivia.avif" alt="img" />
+                            </div>
+                            <div class="tl-image">
+                                <img src="assets/images/james.png" alt="img" />
+                            </div>
+                            <div class="tl-image">
+                                <img src="assets/images/sophia.jpg" alt="img" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation -->
+                    <button class="tl-btn tl-prev-btn"><img src="assets/images/slider-left-arrow.svg"
+                            alt="Previous" /></button>
+                    <button class="tl-btn tl-next-btn"><img src="assets/images/slider-left-arrow.svg"
+                            alt="Next" /></button>
                 </div>
+
                 <div class="tl-brands">
                     <p>Elevating brands that define luxury and excellence:</p>
                     <marquee direction="left" scrollamount=4>
@@ -377,7 +460,89 @@
                 </div>
             </div>
         </section>
+        <!-- blog-block -->
+        <section class="tl-blog-block">
+            <div class="container">
+                <div class="tl-blog-top">
+                    <h4>Explore the blog</h4>
+                    <div class="tl-btn-block">
+                        <a href="blog.html">View all posts</a>
+                        <span class="tl-arrow-block">
+                            <img src="assets/images/arrow.svg" alt="right-arrow">
+                        </span>
+                    </div>
+                </div>
+                <div class="tl-must-read">
+                    <div class="tl-image-block">
+                        <a href="blog.html"> <img src="assets/images/main-blog.png" alt="blog=image"></a>
+                        <img class="tl-hover-arrow" src="assets/images/hover-arrow.svg" alt="arrow-hover">
 
+                    </div>
+                    <div class="tl-content-block">
+                        <div class="tl-must-btn">
+                            <span class="copy-md">Must Read</span>
+                        </div>
+                        <h4>The Ultimate Guide to Building a Timeless Brand Strategy</h4>
+                        <p>Discover the key elements of building a brand strategy that
+                            resonates,
+                            adapts to change, and creates lasting impact in an ever-evolving market.</p>
+                        <div class="tl-author">
+                            <div class="tl-image">
+                                <div class="tl-author-image">
+                                    <img src="assets/images/author.avif" alt="author">
+                                </div>
+                                <div class="tl-author-info">
+                                    <p class="copy-lg">Written by Sophia Lane</p>
+                                    <p class="copy-md">Marketing Consultant</p>
+                                </div>
+                            </div>
+                            <div class="tl-author-btn">
+                                <span class="copy-sm">Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-articles">
+                    <div class="tl-article">
+                        <div class="tl-image">
+                            <a href="blog.html"><img src="assets/images/blog1 (2).png" alt="blog"></a>
+                            <img class="tl-hover-arrow" src="assets/images/hover-arrow.svg" alt="arrow-hover">
+                        </div>
+                        <div class="tl-content">
+                            <p><a href="blog.html">5 Design Trends Luxury Brands Are Using to Stand Out</a></p>
+                            <div class="tl-btn bg-blue ">
+                                <span class="copy-sm">Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tl-article">
+                        <div class="tl-image">
+                            <a href="blog.html"><img src="assets/images/blog2.png" alt="blog"></a>
+                            <img class="tl-hover-arrow" src="assets/images/hover-arrow.svg" alt="arrow-hover">
+                        </div>
+                        <div class="tl-content">
+                            <p><a href="blog.html">How to Use Storytelling to Strengthen Customer Loyalty</a></p>
+                            <div class="tl-btn bg-green ">
+                                <span class="copy-sm">Storytelling</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tl-article">
+                        <div class="tl-image">
+                            <a href="blog.html"><img src="assets/images/blog3.png" alt="blog"></a>
+                            <img class="tl-hover-arrow" src="assets/images/hover-arrow.svg" alt="arrow-hover">
+                        </div>
+                        <div class="tl-content">
+                            <p><a href="blog.html">Top 3 Mistakes Luxury Brands Make in Their Messaging</a></p>
+                            <div class="tl-btn bg-green">
+                                <span class="copy-sm">Storytelling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- faqs-block -->
         <section class="tl-faq-block">
             <div class="container">
@@ -464,7 +629,6 @@
             </div>
         </section>
 
-
     </main>
 
     <footer>
@@ -521,5 +685,3 @@
 
     <script src="assets/js/script.js"></script>
 </body>
-
-</html>

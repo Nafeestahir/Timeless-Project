@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Main Section */
+        .tl-why-timeless {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .tl-why-timeless .tl-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tl-why-timeless .tl-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tl-why-timeless .tl-heading {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tl-why-timeless .tl-subheading {
+            font-size: 18px;
+            color: #777;
+        }
+
+        /* Flex Wrapper */
+        .tl-why-timeless .tl-flex-wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Flex Columns */
+        .tl-why-timeless .tl-flex-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Box */
+        .tl-why-timeless .tl-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hands */
+        .tl-why-timeless .tl-hands-wrapper {
+            position: relative;
+            height: 150px;
+        }
+
+        .tl-why-timeless .tl-hand-left,
+        .tl-why-timeless .tl-hand-right {
+            position: absolute;
+            width: 100px;
+            transition: all 1s ease;
+        }
+
+        .tl-why-timeless .tl-hand-left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .tl-why-timeless .tl-hand-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Rotating Circle */
+        .tl-why-timeless .tl-circle-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+        }
+
+        .tl-why-timeless .tl-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: tl-rotate 10s linear infinite;
+        }
+
+        .tl-why-timeless .tl-circle-img {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(1) {
+            transform: rotate(0deg) translate(80px) rotate(0deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(2) {
+            transform: rotate(45deg) translate(80px) rotate(-45deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(3) {
+            transform: rotate(90deg) translate(80px) rotate(-90deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(4) {
+            transform: rotate(135deg) translate(80px) rotate(-135deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(5) {
+            transform: rotate(180deg) translate(80px) rotate(-180deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(6) {
+            transform: rotate(225deg) translate(80px) rotate(-225deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(7) {
+            transform: rotate(270deg) translate(80px) rotate(-270deg);
+        }
+
+        .tl-why-timeless .tl-circle-img:nth-child(8) {
+            transform: rotate(315deg) translate(80px) rotate(-315deg);
+        }
+
+        @keyframes tl-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Other Boxes */
+        .tl-why-timeless .tl-box-title {
+            font-size: 20px;
+            margin-top: 16px;
+        }
+
+        .tl-why-timeless .tl-box-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tl-why-timeless .tl-retention-number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .tl-why-timeless .tl-retention-text {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="tl-why-timeless">
+        <div class="tl-container">
+            <div class="tl-title">
+                <h2 class="tl-heading">Why Timeless?</h2>
+                <p class="tl-subheading">Discover what sets us apart in the art of luxury branding.</p>
+            </div>
+
+            <div class="tl-flex-wrapper">
+                <!-- Column 1 -->
+                <div class="tl-flex-column">
+                    <div class="tl-box tl-hands">
+                        <div class="tl-hands-wrapper">
+                            <img src="hand-left.png" alt="Left Hand" class="tl-hand-left">
+                            <img src="hand-right.png" alt="Right Hand" class="tl-hand-right">
+                        </div>
+                        <h3 class="tl-box-title">Seamless collaboration</h3>
+                    </div>
+
+                    <div class="tl-box tl-swift-turnaround">
+                        <img src="swift-image.png" alt="Swift Turnaround" class="tl-swift-img">
+                        <h3 class="tl-box-title">Swift turnaround</h3>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="tl-flex-column">
+                    <div class="tl-box tl-rotating-circle">
+                        <div class="tl-circle-wrapper">
+                            <div class="tl-circle">
+                                <!-- 8 Circle Images -->
+                                <img src="brand1.png" class="tl-circle-img" alt="Brand 1">
+                                <img src="brand2.png" class="tl-circle-img" alt="Brand 2">
+                                <img src="brand3.png" class="tl-circle-img" alt="Brand 3">
+                                <img src="brand4.png" class="tl-circle-img" alt="Brand 4">
+                                <img src="brand5.png" class="tl-circle-img" alt="Brand 5">
+                                <img src="brand6.png" class="tl-circle-img" alt="Brand 6">
+                                <img src="brand7.png" class="tl-circle-img" alt="Brand 7">
+                                <img src="brand8.png" class="tl-circle-img" alt="Brand 8">
+                            </div>
+                        </div>
+                        <h3 class="tl-box-title">Over 100+ brands transformed</h3>
+                    </div>
+
+                    <div class="tl-box tl-storytelling">
+                        <h3 class="tl-box-title">Strategic storytelling</h3>
+                        <p class="tl-box-desc">Every great brand begins with a story, but not all stories are created
+                            equal...</p>
+                    </div>
+
+                    <div class="tl-box tl-client-retention">
+                        <h3 class="tl-retention-number">94%</h3>
+                        <p class="tl-retention-text">client retention rate</p>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="tl-flex-column">
+                    <div class="tl-box tl-identity">
+                        <img src="identity-image.png" alt="Identity" class="tl-identity-img">
+                        <h3 class="tl-box-title">Elevated brand identity</h3>
+                    </div>
+
+                    <div class="tl-box tl-detail">
+                        <img src="eye-image.png" alt="Attention to Detail" class="tl-detail-img">
+                        <h3 class="tl-box-title">Attention to detail</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate left hand
+        gsap.to(".tl-hand-left", {
+            x: 50,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".tl-why-timeless",
+                start: "top center",
+                toggleActions: "play none none none",
+                once: true,
+            }
+        });
+
+        // Animate right hand
+        gsap.to(".tl-hand-right", {
+            x: -50,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".tl-why-timeless",
+                start: "top center",
+                toggleActions: "play none none none",
+                once: true,
+            }
+        });
+
+        // Animate Client Retention Number
+        let counter = { val: 0 };
+        gsap.to(counter, {
+            val: 94,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".tl-client-retention",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            },
+            onUpdate: function () {
+                document.querySelector(".tl-retention-number").textContent = Math.round(counter.val) + "%";
+            }
+        });
+
+        // Zoom In on "Swift Turnaround" Image
+        gsap.to(".tl-swift-turnaround", {
+            scale: 1.1, // zoom in 10%
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".tl-swift-turnaround",
+                start: "top 80%",
+                toggleActions: "play none none none",
+                once: true,
+            }
+        });
+
+        // Zoom In on "Attention to Detail" Image
+        gsap.to(".tl-attention-detail", {
+            scale: 1.1, // zoom in 10%
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".tl-attention-detail",
+                start: "top 80%",
+                toggleActions: "play none none none",
+                once: true,
+            }
+        });
+    </script>
+</body>
+
+</html>

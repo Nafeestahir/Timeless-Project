@@ -2,86 +2,166 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* .hero {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: #3498db;
-            z-index: 10;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .brands-section {
+      text-align: center;
+      padding: 4rem 0;
+      overflow: hidden;
+    }
 
-        .content {
-            position: relative;
-            padding: 20px;
-            background: #f1f1f1;
-            width: 100%;
-            height: 90vh;
-            z-index: 10;
-        } */
-        body {
-            margin: 0;
-        }
+    .brands-logos {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      position: relative;
+      width: 100%;
+    }
 
-        .hero {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            /* Full screen height */
-            background: #333;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            /* width: 100%;
-            height: 90vh; */
-        }
+    .brands-logos img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      position: absolute;
+      transition: transform 0.3s ease;
+    }
 
-        .content {
-            /* width: 100%;
-            height: 90vh; */
-            margin-top: 100vh;
-            /* Push below the hero section */
-            padding: 2rem;
-            background: #f4f4f4;
-            z-index: 100;
-        }
-    </style>
+    /* Optional hover effect */
+    .brands-logos img:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    .brands-logos {
+      width: 400px;
+      height: 400px;
+      margin: 2rem auto;
+    }
+
+    .brands-logos img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Position logos in a circle */
+    .brands-logos img:nth-child(1) {
+      transform: translate(200px, 0);
+    }
+
+    .brands-logos img:nth-child(2) {
+      transform: rotate(45deg) translate(200px) rotate(-45deg);
+    }
+
+    .brands-logos img:nth-child(3) {
+      transform: rotate(90deg) translate(200px) rotate(-90deg);
+    }
+
+    /* Continue for all logos */
+  </style>
 </head>
 
 <body>
-    <!-- <div class="hero">Hero Section (Fixed)</div>
-    <div class="content">Scrollable Content Section</div> -->
-    <!-- HTML Example -->
-    <section class="hero">
-        <h1>Welcome to My Site</h1>
-    </section>
+  <section class="tl-brands-section">
+    <h2 class="tl-section-heading">Over 100+ Brands Transformed</h2>
 
-    <section class="content">
-        <p>This is the second section</p>
-    </section>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hero = document.querySelector('.hero');
-            const content = document.querySelector('.content');
+    <div class="tl-brands-carousel">
+      <!-- Add your brand logos - recommended 8+ for smooth rotation -->
+      <img src="/path/to/brand1.png" alt="Client Brand" class="tl-brand-logo">
+      <img src="/path/to/brand2.png" alt="Client Brand" class="tl-brand-logo">
+      <img src="/path/to/brand3.png" alt="Client Brand" class="tl-brand-logo">
+      <img src="/path/to/brand4.png" alt="Client Brand" class="tl-brand-logo">
+      <img src="/path/to/brand5.png" alt="Client Brand" class="tl-brand-logo">
+      <img src="/path/to/brand6.png" alt="Client Brand" class="tl-brand-logo">
+    </div>
+  </section>
 
-            // Set content margin-top to hero height
-            content.style.marginTop = `${hero.offsetHeight}px`;
+  <style>
+    .tl-brands-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tl-section-heading {
+      font-size: 2.5rem;
+      color: #2d3436;
+      margin-bottom: 3rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .tl-brands-carousel {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tl-brand-logo {
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      border-radius: 50%;
+      object-fit: contain;
+      padding: 12px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      will-change: transform;
+    }
+
+    .tl-brand-logo:hover {
+      transform: scale(1.15) translateZ(0);
+      z-index: 10;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Position logos in a circle
+      const logos = document.querySelectorAll('.tl-brand-logo');
+      const radius = 200; // Adjust based on your needs
+      const centerX = window.innerWidth / 2;
+      const centerY = 200;
+
+      logos.forEach((logo, index) => {
+        const angle = (index * (360 / logos.length)) * Math.PI / 180;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        gsap.set(logo, {
+          x: x,
+          y: y,
+          rotation: 0
         });
+      });
 
-        // Optional: Update on window resize
-        window.addEventListener('resize', function () {
-            content.style.marginTop = `${hero.offsetHeight}px`;
+      // Rotate animation
+      const carousel = document.querySelector('.tl-brands-carousel');
+      let rotation = 0;
+
+      gsap.ticker.add(() => {
+        rotation += 0.2; // Adjust rotation speed
+        gsap.set(carousel, {
+          rotation: rotation,
+          transformOrigin: "center center"
         });
-    </script> -->
+      });
+    });
+  </script>
 </body>
 
 </html>
