@@ -1,22 +1,30 @@
 // Header Scroll Trigger
-const tlHeader = document.getElementById('tl-header');
-const tlHeroSection = document.querySelector('.tl-hero');
+document.addEventListener('DOMContentLoaded', function () {
+  const tlHeader = document.querySelector('#tl-header');
+  const tlMainSection = document.querySelector('main');
 
-function handleScroll() {
-  if (window.innerWidth > 1199) {
-    if (window.scrollY >= tlHeroSection.offsetHeight) {
-      tlHeader.querySelector('.tl-nav-links').style.display = 'block';
-      tlHeader.style.backdropFilter = 'blur(8px)';
+  tlHeader.classList.add('hide-menu');
+
+  window.addEventListener('scroll', function () {
+    const tlMainTop = tlMainSection.getBoundingClientRect().top;
+
+    if (tlMainTop <= 0) {
+      if (tlHeader.classList.contains('hide-menu')) {
+        tlHeader.classList.remove('hide-menu');
+      }
+      if (!tlHeader.classList.contains('show-menu')) {
+        tlHeader.classList.add('show-menu');
+      }
     } else {
-      tlHeader.querySelector('.tl-nav-links').style.display = 'none';
-      tlHeader.style.backdropFilter = 'none';
+      if (!tlHeader.classList.contains('hide-menu')) {
+        tlHeader.classList.add('hide-menu');
+      }
+      if (tlHeader.classList.contains('show-menu')) {
+        tlHeader.classList.remove('show-menu');
+      }
     }
-  }
-}
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('resize', handleScroll);
-handleScroll();
-
+  });
+});
 // Search Overlay Toggle
 const tlSearchToggle = document.getElementById("tl-searchToggle");
 const tlSearchOverlay = document.getElementById("tl-searchOverlay");
@@ -225,3 +233,19 @@ gsap.to(".tl-storytelling p", {
     markers: false,
   }
 });
+// gsap.fromTo(".tl-storytelling p",
+//   { opacity: 0, scale: 0.95 },
+//   {
+//     opacity: 1,
+//     scale: 1,
+//     ease: "power2.out",
+//     duration: 2,
+//     scrollTrigger: {
+//       trigger: ".tl-storytelling",
+//       start: "top 40%",
+//       toggleActions: "play reverse play reverse",
+//       scrub: 0.5,
+//     }
+//   }
+// );
+
