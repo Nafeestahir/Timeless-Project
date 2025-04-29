@@ -2,29 +2,26 @@
 document.addEventListener('DOMContentLoaded', function () {
   const tlHeader = document.querySelector('#tl-header');
   const tlMainSection = document.querySelector('main');
-
+  if (!tlHeader || !tlMainSection) {
+    console.warn('Required elements not found');
+    return;
+  }
   tlHeader.classList.add('hide-menu');
-
-  window.addEventListener('scroll', function () {
+  function handleScroll() {
     const tlMainTop = tlMainSection.getBoundingClientRect().top;
 
     if (tlMainTop <= 0) {
-      if (tlHeader.classList.contains('hide-menu')) {
-        tlHeader.classList.remove('hide-menu');
-      }
-      if (!tlHeader.classList.contains('show-menu')) {
-        tlHeader.classList.add('show-menu');
-      }
+      tlHeader.classList.remove('hide-menu');
+      tlHeader.classList.add('show-menu');
     } else {
-      if (!tlHeader.classList.contains('hide-menu')) {
-        tlHeader.classList.add('hide-menu');
-      }
-      if (tlHeader.classList.contains('show-menu')) {
-        tlHeader.classList.remove('show-menu');
-      }
+      tlHeader.classList.add('hide-menu');
+      tlHeader.classList.remove('show-menu');
     }
-  });
+  }
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
 });
+
 // Search Overlay Toggle
 const tlSearchToggle = document.getElementById("tl-searchToggle");
 const tlSearchOverlay = document.getElementById("tl-searchOverlay");
@@ -49,10 +46,12 @@ document.addEventListener("keydown", (e) => {
 // Hamburger Menu Toggle
 const tlBurgerMenu = document.getElementById('tl-burger-menu');
 const tlMenuOverlay = document.getElementById('tl-menu');
+const tlHeader = document.getElementById('tl-header');
 
-tlBurgerMenu.addEventListener('click', function () {
-  this.classList.toggle('tl-close');
+tlBurgerMenu.addEventListener('click', () => {
+  const isOpen = tlBurgerMenu.classList.toggle('tl-close');
   tlMenuOverlay.classList.toggle('tl-overlay');
+  tlHeader.classList.toggle('tl-white', isOpen);
 });
 
 // Image Slider
@@ -233,19 +232,3 @@ gsap.to(".tl-storytelling p", {
     markers: false,
   }
 });
-// gsap.fromTo(".tl-storytelling p",
-//   { opacity: 0, scale: 0.95 },
-//   {
-//     opacity: 1,
-//     scale: 1,
-//     ease: "power2.out",
-//     duration: 2,
-//     scrollTrigger: {
-//       trigger: ".tl-storytelling",
-//       start: "top 40%",
-//       toggleActions: "play reverse play reverse",
-//       scrub: 0.5,
-//     }
-//   }
-// );
-
