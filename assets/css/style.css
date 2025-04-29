@@ -1524,7 +1524,7 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
     .tl-hero .tl-hero-wrapper .tl-video-block {
         max-width: 100%;
         transform: translate(0, 556px) rotate(90deg);
-        aspect-ratio: 0.9868 / 0.98;
+        aspect-ratio: 0.9868 / 0.9763;
         height: auto;
     }
 
@@ -1565,6 +1565,7 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
     .tl-brands-block .tl-brands .tl-storytelling p {
         max-width: 100%;
     }
+
     .tl-brands-block .tl-brands .tl-storytelling .tl-content h5 {
         margin-bottom: 40px;
     }
@@ -1679,6 +1680,6 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
     }
 
     footer .tl-content-block video {
-        transform: translate(0, 4% );
+        transform: translate(0, 4%);
     }
 }
