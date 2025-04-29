@@ -54,6 +54,7 @@ tlBurgerMenu.addEventListener('click', () => {
   tlHeader.classList.toggle('tl-white', isOpen);
 });
 
+
 // Image Slider
 const tlSliderWrapper = document.querySelector('.tl-slides-wrapper');
 const tlSliderContents = tlSliderWrapper.querySelectorAll('.tl-content-block .tl-slide-content');

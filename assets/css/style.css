@@ -261,7 +261,7 @@ header .tl-navbar .tl-nav-links .tl-icon-block {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 
@@ -1372,6 +1372,7 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
     header .tl-navbar .tl-nav-links ul {
         flex-direction: column;
         align-items: flex-start;
+        gap: 14px;
     }
 
     header .tl-navbar .tl-nav-links .tl-nav-wrapper ul {
@@ -1384,6 +1385,7 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
 
     header .tl-navbar .tl-nav-links .tl-nav-wrapper a {
         padding: 4px 0;
+        font-weight: 500;
     }
 
     header .tl-navbar .tl-nav-links .tl-icon-block .tl-icon {
@@ -1397,7 +1399,7 @@ footer .tl-footer-wrapper .tl-informative-block .tl-information ul li a {
         width: 100%;
         left: 0;
         top: 62px;
-        padding-left: 32px;
+        padding: 8px 24px 24px;
         border-radius: 0 0 16px 16px;
     }
 
