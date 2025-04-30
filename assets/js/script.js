@@ -86,12 +86,14 @@ function tlUpdateSlider() {
     tlContent.classList.toggle('tl-active', i === tlCurrent)
   );
 
-  const tlImageBlocks = tlSliderWrapper.querySelectorAll('.tl-image-slider .tl-image-block');
+  const tlImageBlocks = tlSliderWrapper.querySelectorAll('.tl-image-slider .tl-image');
   tlImageBlocks.forEach((tlImage, i) =>
     tlImage.classList.toggle('tl-active', i === tlCurrent)
   );
 
-  tlImageSlider.style.transform = `translateX(-${tlCurrent * 576}px)`;
+  // Dynamically calculate image width
+  const imageWidth = tlImageBlocks[0]?.offsetWidth || 0;
+  tlImageSlider.style.transform = `translateX(-${tlCurrent * imageWidth}px)`;
 
   tlPrevBtn.disabled = tlCurrent === 0;
   tlNextBtn.disabled = tlCurrent === tlSliderContents.length - 1;
@@ -106,7 +108,8 @@ tlNextBtn.addEventListener('click', () => {
 });
 
 // Initialize Slider
-tlUpdateSlider();
+window.addEventListener('load', tlUpdateSlider);
+window.addEventListener('resize', tlUpdateSlider); // Optional: re-calculate on resize
 
 // Accordion
 const tlQuestions = document.querySelectorAll('.tl-faq-question');

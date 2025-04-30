@@ -1383,6 +1383,11 @@ footer .tl-footer-wrapper .tl-informative-block ul li a {
         gap: 14px;
     }
 
+    header .tl-navbar .tl-nav-links a:hover,
+    header .tl-navbar .tl-nav-links .tl-icon-block .tl-icon:hover {
+        background: white;
+    }
+
     header .tl-navbar .tl-nav-links .tl-nav-wrapper ul {
         width: 100%;
     }
