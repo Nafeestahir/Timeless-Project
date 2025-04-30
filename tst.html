@@ -5,161 +5,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <style>
-    .brands-section {
-      text-align: center;
-      padding: 4rem 0;
+    .tl-marquee-container {
       overflow: hidden;
-    }
-
-    .brands-logos {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin-top: 2rem;
-      position: relative;
       width: 100%;
+      position: relative;
     }
 
-    .brands-logos img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      border-radius: 50%;
-      position: absolute;
-      transition: transform 0.3s ease;
+    .tl-marquee {
+      display: flex;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: max-content;
     }
 
-    /* Optional hover effect */
-    .brands-logos img:hover {
-      transform: scale(1.1);
-      z-index: 10;
+    .tl-marquee-item {
+      margin: 0 20px;
+      flex-shrink: 0;
     }
 
-    .brands-logos {
-      width: 400px;
-      height: 400px;
-      margin: 2rem auto;
+    .tl-marquee-item img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
-
-    .brands-logos img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    /* Position logos in a circle */
-    .brands-logos img:nth-child(1) {
-      transform: translate(200px, 0);
-    }
-
-    .brands-logos img:nth-child(2) {
-      transform: rotate(45deg) translate(200px) rotate(-45deg);
-    }
-
-    .brands-logos img:nth-child(3) {
-      transform: rotate(90deg) translate(200px) rotate(-90deg);
-    }
-
-    /* Continue for all logos */
   </style>
+
 </head>
 
 <body>
-  <section class="tl-brands-section">
-    <h2 class="tl-section-heading">Over 100+ Brands Transformed</h2>
-
-    <div class="tl-brands-carousel">
-      <!-- Add your brand logos - recommended 8+ for smooth rotation -->
-      <img src="/path/to/brand1.png" alt="Client Brand" class="tl-brand-logo">
-      <img src="/path/to/brand2.png" alt="Client Brand" class="tl-brand-logo">
-      <img src="/path/to/brand3.png" alt="Client Brand" class="tl-brand-logo">
-      <img src="/path/to/brand4.png" alt="Client Brand" class="tl-brand-logo">
-      <img src="/path/to/brand5.png" alt="Client Brand" class="tl-brand-logo">
-      <img src="/path/to/brand6.png" alt="Client Brand" class="tl-brand-logo">
-    </div>
-  </section>
-
-  <style>
-    .tl-brands-section {
-      padding: 5rem 0;
-      background: #f8f9fa;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tl-section-heading {
-      font-size: 2.5rem;
-      color: #2d3436;
-      margin-bottom: 3rem;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .tl-brands-carousel {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .tl-brand-logo {
-      width: 120px;
-      height: 120px;
-      position: absolute;
-      border-radius: 50%;
-      object-fit: contain;
-      padding: 12px;
-      background: white;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      will-change: transform;
-    }
-
-    .tl-brand-logo:hover {
-      transform: scale(1.15) translateZ(0);
-      z-index: 10;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-  </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <div class="tl-marquee-container">
+    <ul class="tl-marquee">
+      <li class="tl-marquee-item"><img src="assets/images/amsterdam.svg" alt="Amsterdam"></li>
+      <li class="tl-marquee-item"><img src="assets/images/milano.svg" alt="Milano"></li>
+      <li class="tl-marquee-item"><img src="assets/images/img.svg" alt="Image"></li>
+      <li class="tl-marquee-item"><img src="assets/images/download (1).svg" alt="Download 1"></li>
+      <li class="tl-marquee-item"><img src="assets/images/download (2).svg" alt="Download 2"></li>
+      <li class="tl-marquee-item"><img src="assets/images/amsterdam.svg" alt="Amsterdam"></li>
+      <li class="tl-marquee-item"><img src="assets/images/milano.svg" alt="Milano"></li>
+      <li class="tl-marquee-item"><img src="assets/images/img.svg" alt="Image"></li>
+      <li class="tl-marquee-item"><img src="assets/images/download (1).svg" alt="Download 1"></li>
+      <li class="tl-marquee-item"><img src="assets/images/download (2).svg" alt="Download 2"></li>
+    </ul>
+  </div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Position logos in a circle
-      const logos = document.querySelectorAll('.tl-brand-logo');
-      const radius = 200; // Adjust based on your needs
-      const centerX = window.innerWidth / 2;
-      const centerY = 200;
+    document.addEventListener('DOMContentLoaded', function () {
+      const marquee = document.querySelector('.tl-marquee');
+      const container = document.querySelector('.tl-marquee-container');
 
-      logos.forEach((logo, index) => {
-        const angle = (index * (360 / logos.length)) * Math.PI / 180;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+      // 1. Clone items for seamless looping
+      const originalItems = marquee.innerHTML;
+      marquee.innerHTML = originalItems + originalItems + originalItems;
 
-        gsap.set(logo, {
-          x: x,
-          y: y,
-          rotation: 0
-        });
-      });
+      // 2. Calculate positions
+      const containerWidth = container.offsetWidth;
+      const marqueeWidth = marquee.scrollWidth / 3; // Original width (since we tripled items)
 
-      // Rotate animation
-      const carousel = document.querySelector('.tl-brands-carousel');
-      let rotation = 0;
+      // 3. Initial centering
+      marquee.style.left = `calc(50% - ${marqueeWidth / 2}px)`;
 
-      gsap.ticker.add(() => {
-        rotation += 0.2; // Adjust rotation speed
-        gsap.set(carousel, {
-          rotation: rotation,
-          transformOrigin: "center center"
-        });
-      });
+      // 4. Create smooth left-to-right animation
+      const style = document.createElement('style');
+      style.innerHTML = `
+    @keyframes tl-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-${marqueeWidth}px); }
+    }
+    .tl-marquee {
+      animation: tl-scroll ${marqueeWidth / 50}s linear infinite;
+    }
+  `;
+      document.head.appendChild(style);
     });
   </script>
 </body>

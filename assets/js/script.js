@@ -1,26 +1,25 @@
 // Header Scroll Trigger
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const tlHeader = document.querySelector('#tl-header');
-  const tlMainSection = document.querySelector('main');
-  if (!tlHeader || !tlMainSection) {
-    console.warn('Required elements not found');
-    return;
-  }
-  tlHeader.classList.add('hide-menu');
-  function handleScroll() {
-    const tlMainTop = tlMainSection.getBoundingClientRect().top;
+  const tlMain = document.querySelector('main');
+  if (!tlHeader || !tlMain) return;
 
-    if (tlMainTop <= 0) {
-      tlHeader.classList.remove('hide-menu');
-      tlHeader.classList.add('show-menu');
-    } else {
-      tlHeader.classList.add('hide-menu');
-      tlHeader.classList.remove('show-menu');
-    }
-  }
-  handleScroll();
-  window.addEventListener('scroll', handleScroll);
+  tlHeader.classList.add('hide-menu');
+
+  const tlUpdateHeader = () => {
+    const tlScrolledPastMain = tlMain.getBoundingClientRect().top <= 0;
+    const tlIsSmallScreen = window.innerWidth < 1199;
+
+    tlHeader.classList.toggle('show-menu', tlScrolledPastMain);
+    tlHeader.classList.toggle('hide-menu', !tlScrolledPastMain);
+    tlHeader.style.backdropFilter = (tlScrolledPastMain || tlIsSmallScreen) ? 'blur(8px)' : 'blur(0px)';
+  };
+
+  tlUpdateHeader();
+  window.addEventListener('scroll', tlUpdateHeader);
+  window.addEventListener('resize', tlUpdateHeader);
 });
+
 
 // Search Overlay Toggle
 const tlSearchToggle = document.getElementById("tl-searchToggle");
@@ -46,12 +45,31 @@ document.addEventListener("keydown", (e) => {
 // Hamburger Menu Toggle
 const tlBurgerMenu = document.getElementById('tl-burger-menu');
 const tlMenuOverlay = document.getElementById('tl-menu');
-const tlHeader = document.getElementById('tl-header');
+
+let isMenuOpen = false;
 
 tlBurgerMenu.addEventListener('click', () => {
-  const isOpen = tlBurgerMenu.classList.toggle('tl-close');
-  tlMenuOverlay.classList.toggle('tl-overlay');
-  tlHeader.classList.toggle('tl-white', isOpen);
+  isMenuOpen = !isMenuOpen;
+
+  tlBurgerMenu.classList.toggle('tl-close', isMenuOpen);
+
+  if (isMenuOpen) {
+    tlMenuOverlay.classList.add('tl-overlay');
+    gsap.fromTo(tlMenuOverlay,
+      { height: 0, opacity: 0 },
+      { height: 'auto', opacity: 1, duration: 0.4, ease: "power2.out" }
+    );
+  } else {
+    gsap.to(tlMenuOverlay, {
+      height: 0,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.in",
+      onComplete: () => {
+        tlMenuOverlay.classList.remove('tl-overlay');
+      }
+    });
+  }
 });
 
 
@@ -232,4 +250,29 @@ gsap.to(".tl-storytelling p", {
     scrub: 0.5,
     markers: false,
   }
+});
+// marquee
+document.addEventListener('DOMContentLoaded', function () {
+  const tlMarquee = document.querySelector('.tl-marquee');
+  const tlMarqueeContainer = document.querySelector('.tl-marquee-block');
+  // 1. Clone items for seamless looping
+  const tlOriginalItems = tlMarquee.innerHTML;
+  tlMarquee.innerHTML = tlOriginalItems + tlOriginalItems + tlOriginalItems;
+  // 2. Calculate positions
+  const tlContainerWidth = tlMarqueeContainer.offsetWidth;
+  const tlMarqueeWidth = tlMarquee.scrollWidth / 3; // Original width (since we tripled items)
+  // 3. Initial centering
+  tlMarquee.style.left = `calc(50% - ${tlMarqueeWidth / 2}px)`;
+  // 4. Create smooth left-to-right animation
+  const tlStyle = document.createElement('style');
+  tlStyle.innerHTML = `
+    @keyframes tl-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-${tlMarqueeWidth}px); }
+    }
+    .tl-marquee {
+      animation: tl-scroll ${tlMarqueeWidth / 25}s linear infinite;
+    }
+  `;
+  document.head.appendChild(tlStyle);
 });
